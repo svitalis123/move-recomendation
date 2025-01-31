@@ -7,7 +7,10 @@ import { TMDBGenre } from '@/types/api';
 
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { preferences, setPreferences } = useStore();
+  const { preferences, setPreferences } = useStore() as {
+    preferences: { genres: number[], adultContent: boolean },
+    setPreferences: (prefs: { genres?: number[], adultContent?: boolean }) => void
+  };
 
   // Placeholder genres - in real app, fetch from API
   const genres: TMDBGenre[] = [
