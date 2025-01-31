@@ -27,7 +27,7 @@ export const createMovieSlice: StateCreator<
   [],
   [],
   MovieSlice & MovieActions
-> = (set, get) => ({
+> = (set) => ({
   movies: [],
   currentMovie: null,
   pagination: {
