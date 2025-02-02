@@ -1,5 +1,5 @@
 // src/lib/api/tmdb.ts
-import { TMDBResponse, TMDBMovie, TMDBMovieDetail } from '@/types/api';
+import { TMDBResponse, TMDBMovie, TMDBMovieDetail, TMDBGenre } from '@/types/api';
 
 class TMDBClient {
   private apiKey: string;
@@ -49,6 +49,10 @@ class TMDBClient {
 
   async searchMovies(query: string, page: number = 1): Promise<TMDBResponse<TMDBMovie>> {
     return this.fetch(`/search/movie?query=${encodeURIComponent(query)}&page=${page}`);
+  }
+
+  async getGenres(): Promise<{ genres: TMDBGenre[] }> {
+    return this.fetch('/genre/movie/list');
   }
 
   getImageUrl(path: string | null, size: string = 'w500'): string {

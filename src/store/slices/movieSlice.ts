@@ -1,11 +1,11 @@
 // src/store/slices/movieSlice.ts
 import { StateCreator } from 'zustand';
-import { Movie, MovieDetail } from '@/types/movie.types';
+import { TMDBMovie, TMDBMovieDetail } from '@/types/movie.types';
 import { tmdbClient } from '@/lib/api/tmdb';
 
 export interface MovieSlice {
-  movies: Movie[];
-  currentMovie: MovieDetail | null;
+  movies: TMDBMovie[]; 
+  currentMovie: TMDBMovieDetail | null;
   pagination: {
     page: number;
     totalPages: number;
@@ -15,8 +15,8 @@ export interface MovieSlice {
 }
 
 export interface MovieActions {
-  setMovies: (movies: Movie[]) => void;
-  setCurrentMovie: (movie: MovieDetail | null) => void;
+  setMovies: (movies: TMDBMovie[]) => void;  
+  setCurrentMovie: (movie: TMDBMovieDetail | null) => void;
   setPagination: (page: number, totalPages: number) => void;
   fetchMovies: (page: number) => Promise<void>;
   fetchMovieById: (id: string) => Promise<void>;

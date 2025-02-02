@@ -1,3 +1,4 @@
+// src/components/auth/AuthCallback.tsx
 'use client';
 
 import { useEffect } from 'react';
@@ -9,7 +10,7 @@ export function AuthCallback() {
   const { isLoaded, isSignedIn } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirectUrl = searchParams.get('redirect_url');
+  const redirectUrl = searchParams?.get('redirect_url');
 
   useEffect(() => {
     if (isLoaded && isSignedIn) {

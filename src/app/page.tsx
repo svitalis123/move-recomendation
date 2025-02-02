@@ -34,7 +34,7 @@ export default async function Home() {
       ) : (
         <Link
           href="/movies"
-          className="bg-primary text-white px-4 py-2 rounded inline-block"
+          className="bg-[#000] text-white px-4 py-2 rounded inline-block"
         >
           Browse Movies
         </Link>

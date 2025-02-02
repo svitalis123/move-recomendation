@@ -1,11 +1,11 @@
 'use client';
 
 import { useStore } from '@/store';
-import { Movie } from '@/types/movie.types';
+import { TMDBMovie } from '@/types/movie.types';
 import { BookmarkPlus, BookmarkCheck } from 'lucide-react';
 
 interface WatchlistButtonProps {
-  movie: Movie;
+  movie: TMDBMovie;
 }
 
 export function WatchlistButton({ movie }: WatchlistButtonProps) {

@@ -5,7 +5,9 @@ import { useStore } from '@/store';
 import { X } from 'lucide-react';
 
 export function Toast() {
-  const { toast, hideToast } = useStore() as { toast: { visible: boolean, type: string, message: string }, hideToast: () => void };
+  // Moved the useStore hook inside the component function
+  const { toast, hideToast } = useStore();
+
 
   useEffect(() => {
     if (toast.visible) {
