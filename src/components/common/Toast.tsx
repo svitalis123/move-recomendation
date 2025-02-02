@@ -8,6 +8,7 @@ export function Toast() {
   // Moved the useStore hook inside the component function
   const { toast, hideToast } = useStore();
 
+
   useEffect(() => {
     if (toast.visible) {
       const timer = setTimeout(hideToast, 3000);

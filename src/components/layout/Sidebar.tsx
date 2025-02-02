@@ -7,6 +7,7 @@ import { Filter, X } from 'lucide-react';
 
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
+
   const { 
     preferences, 
     setPreferences, 
@@ -15,6 +16,7 @@ export function Sidebar() {
     loading: genresLoading, 
     error: genresError 
   } = useStore();
+
 
   useEffect(() => {
     fetchGenres();
