@@ -5,15 +5,15 @@ import { MovieDetails } from '@/components/movies/MovieDetails';
 import { LoadingSpinner } from '@/components/common/LoadingSpinner';
 import { tmdbClient } from '@/lib/api/tmdb';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
-interface MoviePageProps {
-  params: {
-    id: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
-}
+export default async function MoviePage({
+  params,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: any;
+}) {
 
-export default async function MoviePage({ params }: MoviePageProps) {
   try {
     const movie = await tmdbClient.getMovieDetails(params.id);
 
@@ -29,7 +29,12 @@ export default async function MoviePage({ params }: MoviePageProps) {
   }
 }
 
-export async function generateMetadata({ params }: MoviePageProps) {
+export async function generateMetadata({
+  params,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: any;
+}): Promise<Metadata> {
   try {
     const movie = await tmdbClient.getMovieDetails(params.id);
     return {

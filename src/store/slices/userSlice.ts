@@ -1,5 +1,5 @@
 import { StateCreator } from 'zustand';
-import { Movie } from '@/types/movie.types';
+import { TMDBMovie } from '@/types/movie.types';
 
 export interface UserPreferences {
   genres: number[];
@@ -9,13 +9,13 @@ export interface UserPreferences {
 
 export interface UserSlice {
   preferences: UserPreferences;
-  watchlist: Movie[];
+  watchlist: TMDBMovie[];
   loading: boolean;
 }
 
 export interface UserActions {
   setPreferences: (preferences: Partial<UserPreferences>) => void;
-  addToWatchlist: (movie: Movie) => void;
+  addToWatchlist: (movie: TMDBMovie) => void;
   removeFromWatchlist: (movieId: number) => void;
   isInWatchlist: (movieId: number) => boolean;
 }

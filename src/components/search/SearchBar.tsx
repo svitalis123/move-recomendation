@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, startTransition } from 'react';
 import { Search as SearchIcon } from 'lucide-react';
 import { useStore } from '@/store';
 import { useDebounce } from '@/hooks/useDebounce';
@@ -9,9 +9,12 @@ export function SearchBar() {
   const [query, setQuery] = useState('');
   const { performSearch } = useStore();
 
-  const debouncedSearch = useDebounce((value: string) => {
-    performSearch(value);
-  }, 500);
+  const debouncedSearch = useDebounce<string>((value: string) => {
+    startTransition(() => {
+      performSearch(value);
+    });
+  }, 300);
+  
 
   const handleSearch = useCallback((value: string) => {
     setQuery(value);
