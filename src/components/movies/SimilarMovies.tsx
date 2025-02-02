@@ -2,12 +2,13 @@
 
 import { useStore } from '@/store';
 import { MovieCard } from './MovieCard';
+import { TMDBMovie } from '@/types/api';
 
 interface SimilarMoviesProps {
   movieId: string;
 }
 
-export function SimilarMovies({ movieId }: SimilarMoviesProps) {
+export function SimilarMovies({  }: SimilarMoviesProps) {
   const { currentMovie } = useStore();
 
   if (!currentMovie?.similar?.results.length) {
@@ -18,7 +19,7 @@ export function SimilarMovies({ movieId }: SimilarMoviesProps) {
     <section className="mt-16">
       <h2 className="text-2xl font-bold mb-6">Similar Movies</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {currentMovie.similar.results.slice(0, 4).map((movie) => (
+        {currentMovie.similar.results.slice(0, 4).map((movie: TMDBMovie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>

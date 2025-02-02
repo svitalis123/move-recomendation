@@ -1,6 +1,6 @@
 import { ClerkProvider } from '@clerk/nextjs';
 import { Inter } from 'next/font/google';
-import { Header } from '@/components/layout/Header';
+import Header from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import './globals.css';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';

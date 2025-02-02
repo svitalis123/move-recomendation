@@ -1,19 +1,44 @@
-export interface Movie {
+
+export interface TMDBMovie {
+
   id: number;
+
   title: string;
+
   overview: string;
-  poster_path: string;
-  backdrop_path: string;
+
   release_date: string;
+
+  poster_path: string | null; 
+
+  backdrop_path: string | null;
+
   vote_average: number;
+
+  vote_count: number;
+
+  adult: boolean;
+
+  original_language: string;
+
+  popularity: number;
+
   genre_ids: number[];
+
 }
 
-export interface MovieDetail extends Omit<Movie, 'genre_ids'> {
+export interface TMDBGenre {
+  id: number;
+  name: string;
+}
+
+
+
+export interface TMDBMovieDetail extends Omit<TMDBMovie, 'genre_ids'> {
   genres: Genre[];
   runtime: number;
   status: string;
-  tagline: string;
+  tagline: string | null; 
   reviews?: Review[];
   averageRating?: number;
   credits: {
@@ -21,7 +46,7 @@ export interface MovieDetail extends Omit<Movie, 'genre_ids'> {
     crew: Crew[];
   };
   similar: {
-    results: Movie[];
+    results: TMDBMovie[];
   };
 }
 

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useUser } from '@clerk/nextjs';
-import { Star, StarHalf } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { useStore } from '@/store';
 import { ReviewForm } from './ReviewForm';
 import { ReviewList } from './ReviewList';

@@ -8,7 +8,7 @@ export function formatDate(dateString: string): string {
       month: 'long',
       day: 'numeric'
     }).format(date);
-  } catch (error) {
+  } catch {
     return 'Release date unavailable';
   }
 }
@@ -20,7 +20,7 @@ export function formatRuntime(minutes: number): string {
     return hours > 0 
       ? `${hours}h ${remainingMinutes}m`
       : `${remainingMinutes}m`;
-  } catch (error) {
+  } catch {
     return 'Duration unavailable';
   }
 }
